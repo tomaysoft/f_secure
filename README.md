@@ -1,4 +1,4 @@
-# F_Secure 
+# Homework todo app
 
 Zainstaluj niezbędne modułu poleceniem:
 ```bash
