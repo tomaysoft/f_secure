@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-app.use(express.static("fSecure"));
+app.use(express.static("myApp"));
 app.get('/', function (req, res, next) {
     res.redirect('/');
 });
