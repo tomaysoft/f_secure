@@ -1,15 +1,111 @@
 <!DOCTYPE html>
-<html ng-app>
-    <head>
-        <script src="../node_modules/angular/angular.js"></script>
-        <title>Angular F-Secure App</title>
-    </head>
-    <body>
-        <div>
-            <label>Name:</label>
-            <input type="text" ng-model="yourName" placeholder="Enter a name here">
-            <hr>
-            <h1>Hello {{yourName}}!</h1>
+<html ng-app="todoApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="styles/css/style.css">
+    <link rel="stylesheet" href="styles/css/all.css">
+    <title>AngularJS Homework App</title>
+</head>
+
+<body>
+    <div ng-controller="TodoListController">
+        <h1 class="app-title">My Homework - TODO App</h1>
+        <div class="summary">
+            <div class="summary-item">Total <div class="summary-value">{{total()}}</div>
+            </div>
+            <div class="summary-item">Completed <div class="summary-value">{{completed()}}</div>
+            </div>
+            <div class="summary-item">Not completed <div class="summary-value">{{notCompleted()}}</div>
+            </div>
         </div>
-    </body>
+
+        <div class="table">
+            <div class="tr">
+                <div class="th checkbox"></div>
+                <div class="th id" ng-click="sort('id')">
+                    ID
+                    <div class="sort-table-arrows">
+                        <span class="up-arrow" ng-class="{active: sorting.id==='asc'}"><i class="fa fa-sort-up"></i></span>
+                        <span class="down-arrow" ng-class="{active: sorting.id==='desc'}"><i class="fa fa-sort-down"></i></span>
+                    </div>
+                </div>
+                <div class="th title" ng-click="sort('title')">
+                    Title
+                    <div class="sort-table-arrows">
+                        <span class="up-arrow" ng-class="{active: sorting.title==='asc'}"><i class="fa fa-sort-up"></i></span>
+                        <span class="down-arrow" ng-class="{active: sorting.title==='desc'}"><i class="fa fa-sort-down"></i></span>
+                    </div>
+                </div>
+                <div class="th content" ng-click="sort('content')">
+                    Content
+                    <div class="sort-table-arrows">
+                        <span class="up-arrow" ng-class="{active: sorting.content==='asc'}"><i class="fas fa-sort-up"></i></span>
+                        <span class="down-arrow" ng-class="{active: sorting.content==='desc'}"><i class="fas fa-sort-down"></i></span>
+                    </div>
+                </div>
+                <div class="th status" ng-click="sort('status')">
+                    Status
+                    <div class="sort-table-arrows">
+                        <span class="up-arrow" ng-class="{active: sorting.status==='asc'}"><i class="fas fa-sort-up"></i></span>
+                        <span class="down-arrow" ng-class="{active: sorting.status==='desc'}"><i class="fas fa-sort-down"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="tr" ng-repeat="todo in todos track by $index">
+                <div class="td checkbox"><input type="checkbox" ng-click="showConfirm(todo)"
+                    ng-model="todo.checked" /></div>
+                <div class="td id">{{todo.id}}</div>
+                <div class="td title">{{todo.title}}</div>
+                <div class="td content">{{todo.content}}</div>
+                <div class="td status">{{todo.status}}</div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <div class="active-button button" ng-click="addTodo()">Add</div>
+        </div>
+
+        <div class="modal" ng-if="editorVisible || confirmVisible">
+            <div class="confirmation-container" ng-if="confirmVisible">
+                    <div class="confirmation" >
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Do you want to delete this news?
+                        <div class="buttons">
+                            <span class="confirm-button red" ng-click="cancelDelete()">No</span>
+                            <span class="confirm-button white" ng-click="deleteTodo()">Yes</span>
+                        </div>
+                    </div>
+                </div>
+            <div class="modal" ng-if="editorVisible">
+                <div class="modal-body">
+                    <div class="content">
+                        <h1>News</h1>
+                        <form name="newsForm" ng-submit="submitForm(newsForm.$valid)" novalidate>
+                            <div class="form-element">
+                                <input type="text" ng-model="newTodo.title" required placeholder="Add title"/>
+                                <span ng-show="newsForm.title.$touched && newsForm.title.$invalid">The title is required.</span>
+                            </div>
+                            <div class="form-element">
+                                <textarea ng-model="newTodo.content" required placeholder="Add content"></textarea>
+                                <span ng-show="newsForm.content.$touched && newsForm.content.$invalid">The content is required.</span>
+                            </div>
+                            <div class="form-element">
+                                <div class="buttons">
+                                    <button type="submit" class="active-button button"
+                                        ng-disabled="newsForm.$invalid">Save</button>
+                                    <button class="button" ng-click="cancelAdd()">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-background"></div>
+        </div>
+    </div>
+
+</body>
+<script src="app.js"></script>
+
 </html>

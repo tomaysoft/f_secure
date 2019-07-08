@@ -1,11 +1,13 @@
 {
-  "name": "f-secure",
+  "name": "f-secure_homework",
   "version": "0.0.1",
   "description": "F-Secure Homework",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "api": "json-server --watch db.json"
+    "api": "json-server --watch db.json",
+    "scss-compile": "node-sass -rw myApp/styles/scss -o myApp/styles/css",
+    "watch": "npm run scss-compile"
   },
   "author": "TomaySOFT",
   "license": "ISC",
@@ -13,8 +15,9 @@
     "typescript": "^3.5.2"
   },
   "dependencies": {
-    "angular": "^1.7.8",
+    "express": "*",
     "json-server": "^0.14.0",
-    "express": "*"
+    "node-sass": "^4.12.0",
+    "scss-compile": "^0.1.7"
   }
 }

@@ -1,0 +1,174 @@
+body {
+  font-family: 'Roboto';
+  font-size: 12px;
+  background-color: #efefef; }
+  body div[ng-controller] {
+    width: 85%;
+    margin: auto; }
+  body .app-title {
+    text-shadow: 2px 2px 3px  #5f5f5f; }
+
+.summary {
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  padding: 6px;
+  font-weight: 200;
+  display: inline-block;
+  margin-bottom: 10px; }
+  .summary .summary-item {
+    float: left;
+    margin: 6px;
+    padding: 6px;
+    min-width: 100px;
+    color: #5f5f5f; }
+    .summary .summary-item .summary-value {
+      font-size: 2.2em;
+      margin-top: 2px;
+      color: #0f0f0f; }
+
+[ng-app] .table {
+  width: 100%;
+  margin-bottom: 15px;
+  display: table; }
+  [ng-app] .table .tr {
+    display: table-row;
+    background-color: #fff; }
+    [ng-app] .table .tr .td {
+      padding: 10px;
+      display: table-cell;
+      border-top: 1px solid #cfcfcf; }
+      [ng-app] .table .tr .td.id {
+        color: #4040ff; }
+    [ng-app] .table .tr .th {
+      background-color: #4f4f4f;
+      font-weight: 450;
+      text-align: left;
+      padding: 6px 10px;
+      color: #fff;
+      display: table-cell;
+      cursor: pointer; }
+      [ng-app] .table .tr .th .sort-table-arrows {
+        right: 0;
+        float: right;
+        display: inline;
+        color: #777; }
+        [ng-app] .table .tr .th .sort-table-arrows .up-arrow.active {
+          color: #fff; }
+        [ng-app] .table .tr .th .sort-table-arrows .down-arrow {
+          margin-left: -10px; }
+          [ng-app] .table .tr .th .sort-table-arrows .down-arrow.active {
+            color: #fff; }
+      [ng-app] .table .tr .th.checkbox {
+        width: 2%;
+        min-width: 15px;
+        max-width: 25px; }
+      [ng-app] .table .tr .th.id {
+        width: 4%;
+        min-width: 20px;
+        max-width: 30px; }
+      [ng-app] .table .tr .th.content, [ng-app] .table .tr .th.title {
+        width: 38%;
+        min-width: 250px;
+        max-width: 450px; }
+      [ng-app] .table .tr .th.status {
+        width: 8%;
+        min-width: 80px;
+        max-width: 90px; }
+
+.buttons {
+  float: right;
+  right: 20px; }
+  .buttons .button, .buttons button {
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #4040ff;
+    font-weight: 400;
+    width: 150px;
+    text-align: center; }
+  .buttons .active-button {
+    background-color: #4040ff;
+    color: #fff; }
+
+div.modal .confirmation-container {
+  position: relative;
+  top: 10px;
+  z-index: 1000;
+  overflow: auto; }
+
+div.modal .modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: auto; }
+  div.modal .modal .modal-body {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #afafaf;
+    border-radius: 6px;
+    box-shadow: 3px 3px 4px #afafaf;
+    margin: 30px auto;
+    width: 400px; }
+    div.modal .modal .modal-body .content {
+      width: 100%;
+      display: inline-block; }
+      div.modal .modal .modal-body .content .form-element {
+        clear: both;
+        margin: 4px;
+        padding: 6px; }
+        div.modal .modal .modal-body .content .form-element input, div.modal .modal .modal-body .content .form-element textarea {
+          font-family: 'Roboto';
+          padding: 5px;
+          width: 100%;
+          font-size: 1.2em; }
+        div.modal .modal .modal-body .content .form-element .buttons {
+          float: left; }
+          div.modal .modal .modal-body .content .form-element .buttons button {
+            float: left;
+            width: 80px;
+            margin-right: 10px;
+            color: #4040ff;
+            border: none; }
+            div.modal .modal .modal-body .content .form-element .buttons button[disabled] {
+              color: #aaa;
+              background-color: #8080ff; }
+            div.modal .modal .modal-body .content .form-element .buttons button[type="submit"] {
+              color: #fff; }
+
+div.modal .modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #afafaf;
+  opacity: 0.2;
+  z-index: 900; }
+
+.confirmation-container {
+  width: 100%;
+  float: right;
+  bottom: 10px;
+  display: block;
+  clear: both;
+  margin: 10px 0; }
+
+.confirmation {
+  background-color: #df4040;
+  padding: 10px;
+  border-radius: 6px;
+  color: #fff;
+  width: 50%;
+  float: right; }
+  .confirmation .confirm-button {
+    padding: 6px 30px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    margin: 0 4px; }
+    .confirmation .confirm-button.white {
+      background-color: #fff;
+      color: #df4040; }
+    .confirmation .confirm-button.red {
+      background-color: inherit; }
